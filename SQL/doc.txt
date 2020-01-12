@@ -1,0 +1,73 @@
+Q>
+Tick the correct order numbers of 'Atelier graphique' (customer name) from orders and customer table
+
+ANS>
+SELECT orders.orderNumber FROM classicmodels.orders inner join classicmodels.customers
+on customers.customerNumber = orders.customerNumber where customers.customerName  = "Atelier graphique";
+
+
+Q>Price Paid
+Send Feedback
+Get sum or price paid for orderNumber 10300 and customerNumber = 128 from order and orderdetails table
+
+ANS>
+SELECT sum(orderdetails.priceEach) FROM classicmodels.orders inner join classicmodels.orderdetails
+on orderdetails.orderNumber = orders.orderNumber where orders.customerNumber  = "128" and orderdetails.orderNumber = "10300";
+
+Q>Get details of those employees whose first name starts with ‘L’ and reports to 1143.
+ANS>
+SELECT firstName, reportsTo FROM classicmodels.employees
+where firstName like "L%"  and reportsTo ="1143";
+
+Q>Price Each
+Send Feedback
+Get sum of priceeach from orderdetails table for customer name ’Atelier graphique’ from customers table matching orderNumber from orders table
+
+Ans>
+SELECT sum(orderdetails.priceEach) FROM classicmodels.orders inner join classicmodels.customers
+on customers.customerNumber = orders.customerNumber inner join classicmodels.orderdetails 
+on orderdetails.orderNumber = orders.orderNumber where customers.customerName = "Atelier graphique";
+
+Q>
+update
+Send Feedback
+Update msrp of motorcycles to 100 in products table and get msrp sum of motorcycles
+Note: Answer should be in Integer
+
+ANS>
+Update classicmodels.products set MSRP = 100
+where productLine = "Motorcycles" ;
+SELECT sum(MSRP) FROM classicmodels.products
+where productLine = "Motorcycles";
+
+Q>
+aggregate
+Send Feedback
+##### From Orderdetails get number of rows of quantityOrdered is greater than 50
+
+Note: Answwer should be in Integer
+Ans>
+SELECT count(*) FROM classicmodels.orderdetails
+where quantityOrdered > "50";
+
+Q>
+aggregate
+Send Feedback
+Count the total number (quantity in stock) of motorcycles in products table
+Note: Answer should be in Integer
+
+ANS>
+SELECT sum(quantityInStock) FROM classicmodels.products
+ where productLine="Motorcycle";
+
+Q>
+Number Of Rows
+Send Feedback
+Number of Rows after left joining payments and customers table
+
+ANS>
+SELECT count(*)
+FROM classicmodels.payments
+LEFT JOIN classicmodels.customers
+ON
+payments.customerNumber = customers.customerNumber;

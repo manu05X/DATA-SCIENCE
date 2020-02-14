@@ -1,0 +1,13 @@
+SELENIUM
+
+* Selenium is basically a Web Browser Automation tool,which simulates a user surfing the Internet.
+*It allows-
+    # Clicking buttons.
+    # Entering information in forms
+    # Searching for specific information on the web pages
+    
+BeautifulSoup Limitations:-
+
+    * This process is suitable for static content
+    * Sometime the data we want to extract is hidden behind JavaScript Objects,
+        objects that need to be clicked on to reveal the hidden data.
